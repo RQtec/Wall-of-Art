@@ -395,9 +395,12 @@ section { position: relative; }
 }
 @media (max-width: 860px) {
   .topbar { display: none; }
+  /* backdrop-filter on the header would trap the position:fixed drawer inside
+     the header box (only the first link shows) — disable it on mobile */
+  .header, .header.scrolled { backdrop-filter: none; }
   .nav {
-    position: fixed; inset: 0 0 0 auto; width: min(82vw, 340px); background: #fff; flex-direction: column;
-    padding: 100px 26px 40px; transform: translateX(100%); transition: transform var(--t); box-shadow: var(--shadow-lg); align-items: stretch;
+    position: fixed; inset: 0 auto 0 0; width: min(84vw, 330px); background: #fff; flex-direction: column;
+    padding: 86px 22px 40px; transform: translateX(-100%); transition: transform var(--t); box-shadow: var(--shadow-lg); align-items: stretch;
     z-index: 190; overflow-y: auto;
   }
   .nav.open { transform: translateX(0); }
