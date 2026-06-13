@@ -29,8 +29,13 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 # FORM SUBMISSION
-# Comment out the following line and place your railway URL, and your production URL in the array.
-# CSRF_TRUSTED_ORIGINS = ["*"]
+# Set CSRF_TRUSTED_ORIGINS in the environment to your deployed URL(s) so the
+# contact form works over HTTPS, e.g. "https://your-app.up.railway.app".
+# Comma-separated for multiple origins.
+CSRF_TRUSTED_ORIGINS = [
+    o.strip() for o in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()
+]
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 # Application definition
 
@@ -59,7 +64,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, "templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,16 +83,26 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ["PGDATABASE"],
-        'USER': os.environ["PGUSER"],
-        'PASSWORD': os.environ["PGPASSWORD"],
-        'HOST': os.environ["PGHOST"],
-        'PORT': os.environ["PGPORT"],
+# Use PostgreSQL when Railway/Postgres env vars are present (production),
+# otherwise fall back to SQLite so the site runs locally with no setup.
+if os.environ.get("PGDATABASE"):
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': os.environ["PGDATABASE"],
+            'USER': os.environ["PGUSER"],
+            'PASSWORD': os.environ["PGPASSWORD"],
+            'HOST': os.environ["PGHOST"],
+            'PORT': os.environ["PGPORT"],
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 
 # Password validation
