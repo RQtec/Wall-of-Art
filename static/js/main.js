@@ -1,4 +1,4 @@
-/* مؤسسة جدار الفن للمقاولات — interactions */
+/* Wall of Art — interactions */
 (function () {
   "use strict";
 
@@ -112,10 +112,10 @@
       const f = new FormData(cform);
       const L = (k) => (f.get(k) || "").toString().trim();
       const lines = [
-        "طلب عرض سعر — جدار الفن (WALL OF ART)",
+        "طلب جديد — Wall of Art",
         "الاسم: " + L("name"),
         "الجوال: " + L("phone"),
-        "البريد: " + L("email"),
+        "المدينة: " + L("city"),
         "الخدمة: " + L("service"),
         "التفاصيل: " + L("message"),
       ];
