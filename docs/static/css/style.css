@@ -453,3 +453,28 @@ section { position: relative; }
 .footer-pdf { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13.5px; color: #0B2545; background: var(--gold-500); padding: 9px 16px; border-radius: 10px; transition: var(--t-fast); }
 .footer-pdf:hover { background: var(--gold-400); transform: translateY(-1px); }
 @media (max-width: 720px) { .footer-actions { align-items: flex-start; } }
+
+/* ---- Accessibility, brand-green & polish (added) ---- */
+:root { --green: #1AA053; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+  outline: 3px solid var(--gold-500); outline-offset: 2px; border-radius: 6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
+/* WhatsApp floating button — gentle attention pulse */
+.fab-wa { animation: waPulse 2.8s ease-out infinite; }
+@keyframes waPulse {
+  0% { box-shadow: 0 10px 30px rgba(0,0,0,.18), 0 0 0 0 rgba(37,211,102,.5); }
+  70% { box-shadow: 0 10px 30px rgba(0,0,0,.18), 0 0 0 16px rgba(37,211,102,0); }
+  100% { box-shadow: 0 10px 30px rgba(0,0,0,.18), 0 0 0 0 rgba(37,211,102,0); }
+}
+@media (prefers-reduced-motion: reduce) { .fab-wa { animation: none; } }
+/* Trust / credentials strip */
+.trust { background: var(--bg-soft); border-block: 1px solid var(--line); }
+.trust .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 16px 40px; padding-block: 24px; }
+.trust-item { display: inline-flex; align-items: center; gap: 11px; color: var(--slate); font-weight: 600; font-size: 15px; }
+.trust-item svg { width: 26px; height: 26px; color: var(--green); flex: none; }
+.trust-item b { color: var(--navy-800); font-weight: 800; }
+@media (max-width: 600px) { .trust .container { gap: 14px 22px; } .trust-item { font-size: 13px; } .trust-item svg { width: 22px; height: 22px; } }
