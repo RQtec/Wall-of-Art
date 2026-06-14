@@ -500,3 +500,15 @@ html[lang="ar"] .stat-label,
 html[lang="ar"] .v-cat,
 html[lang="ar"] .g-cat,
 html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 { letter-spacing: normal; }
+
+/* ---- Static presentation: no scroll-reveal / counter / pulse / hover motion ---- */
+.reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+.scroll-down { display: none !important; }
+*, *::before, *::after { animation: none !important; }
+.btn:hover, .lang-toggle:hover, .footer-pdf:hover, .topbar-social a:hover, .fab:hover,
+.service-card:hover, .vm-card:hover, .info-card:hover, .step:hover, .sector:hover,
+.why-item:hover, .stat:hover, .nav-link:hover { transform: none !important; }
+.gallery-item:hover img { transform: none !important; }
+
+/* Pack the larger gallery tightly (fill row/col-span gaps) */
+.gallery { grid-auto-flow: dense; }

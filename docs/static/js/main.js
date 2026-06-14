@@ -35,33 +35,11 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---------- Reveal on scroll ---------- */
-  const revealObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add("in"); revealObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
-  $$(".reveal").forEach(el => { if (!el.classList.contains("in")) revealObs.observe(el); });
+  /* ---------- Reveal: show immediately (animations disabled) ---------- */
+  $$(".reveal").forEach(el => el.classList.add("in"));
 
-  /* ---------- Animated counters ---------- */
-  const animateCount = (el) => {
-    const target = parseInt(el.dataset.count, 10) || 0;
-    const dur = 1600;
-    const start = performance.now();
-    const step = (now) => {
-      const p = Math.min((now - start) / dur, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.round(target * eased).toLocaleString("en-US");
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const countObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { animateCount(e.target); countObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.6 });
-  $$("[data-count]").forEach(el => countObs.observe(el));
+  /* ---------- Counters: final values, no animation ---------- */
+  $$("[data-count]").forEach(el => { el.textContent = (parseInt(el.dataset.count, 10) || 0).toLocaleString("en-US"); });
 
   /* ---------- Scrollspy ---------- */
   const sections = $$("section[id], div[id='home']");
