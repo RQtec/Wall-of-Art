@@ -293,6 +293,9 @@ section { position: relative; }
 .stage-card .sn { display: flex; width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-500), var(--gold-600)); color: #1c1303; font-weight: 800; font-size: 17px; align-items: center; justify-content: center; margin-bottom: 14px; }
 .stage-card h4 { font-size: 16.5px; font-weight: 800; color: var(--navy-800); margin-bottom: 9px; }
 .stage-card p { font-size: 14px; color: var(--slate); line-height: 1.7; }
+.svc-chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: -6px 0 22px; }
+.svc-chips .lbl { font-size: 13px; font-weight: 800; color: var(--gold-600); margin-inline-end: 4px; }
+.svc-chip { font-size: 12.5px; font-weight: 600; color: var(--navy-700); background: var(--bg-soft-2); border: 1px solid var(--line); border-radius: 50px; padding: 6px 13px; }
 
 /* ---------- Gallery ---------- */
 .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 16px; }
