@@ -206,6 +206,21 @@ section { position: relative; }
 }
 .about-exp b { font-size: 34px; font-weight: 800; display: block; }
 .about-exp span { font-size: 13px; font-weight: 700; }
+/* Vision 2030 — national-projects panel (About Us) */
+.about-media.v2030 { display: flex; flex-direction: column; gap: 16px; }
+.v2030-head h3 { font-size: 20px; font-weight: 800; color: var(--navy-800); margin: 6px 0 0; line-height: 1.3; }
+.v2030-kick { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 800; letter-spacing: 1px; color: var(--gold-600); text-transform: uppercase; }
+.v2030-kick::before { content: ""; width: 22px; height: 2px; background: var(--gold-500); display: inline-block; }
+.v2030-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.v2030-tile { position: relative; margin: 0; border-radius: var(--radius-sm); overflow: hidden; box-shadow: var(--shadow-sm); aspect-ratio: 4/3; }
+.v2030-tile img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--t); }
+.v2030-tile:hover img { transform: scale(1.05); }
+.v2030-tile figcaption { position: absolute; inset-inline: 0; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 28px 12px 10px; color: #fff; background: linear-gradient(0deg, rgba(8,22,43,.94), rgba(8,22,43,.46) 55%, transparent); }
+.v2030-tile figcaption .t { font-size: 13px; font-weight: 800; line-height: 1.2; }
+.v2030-tile .pill { flex: none; font-size: 9.5px; font-weight: 800; letter-spacing: .4px; padding: 3px 8px; border-radius: 50px; background: rgba(238,122,27,.95); color: #1c1303; }
+.v2030-note { font-size: 13px; color: var(--muted); line-height: 1.65; margin: 0; }
+.about-media.v2030 .about-exp { position: static; align-self: flex-start; padding: 12px 18px; }
+.about-media.v2030 .about-exp b { font-size: 26px; }
 .about-body h2 { font-size: clamp(26px, 3.4vw, 40px); font-weight: 800; color: var(--navy-800); line-height: 1.25; margin: 14px 0 18px; }
 .about-body p { color: var(--slate); margin-bottom: 16px; font-size: 17px; }
 .vm-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 26px; }
