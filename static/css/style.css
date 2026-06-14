@@ -100,8 +100,6 @@ section { position: relative; }
 .btn-dark:hover { transform: translateY(-3px); background: var(--navy-700); }
 .btn-outline { border-color: rgba(255,255,255,.55); color: #fff; }
 .btn-outline:hover { background: #fff; color: var(--navy-800); transform: translateY(-3px); }
-.btn-ghost { border-color: var(--line); color: var(--navy-800); background: #fff; }
-.btn-ghost:hover { border-color: var(--gold-500); color: var(--gold-600); transform: translateY(-3px); }
 
 /* ---------- Top bar ---------- */
 .topbar {
@@ -161,8 +159,8 @@ section { position: relative; }
 .hero-overlay {
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(90deg, rgba(7,24,43,.94) 0%, rgba(7,24,43,.78) 45%, rgba(7,24,43,.45) 100%),
-    linear-gradient(0deg, rgba(7,24,43,.85) 0%, rgba(7,24,43,.1) 40%);
+    linear-gradient(270deg, rgba(7,24,43,.96) 0%, rgba(7,24,43,.82) 50%, rgba(7,24,43,.55) 100%),
+    linear-gradient(0deg, rgba(7,24,43,.92) 0%, rgba(7,24,43,.12) 45%);
 }
 .hero-content { max-width: 760px; }
 .hero .eyebrow { color: var(--gold-400); background: rgba(238,122,27,.12); padding: 7px 16px; border-radius: 50px; border: 1px solid rgba(238,122,27,.3); }
@@ -447,3 +445,11 @@ section { position: relative; }
   .section--dark { background: #fff !important; color: #000 !important; }
   .section--dark .section-title, .section--dark .why-item h4 { color: #000 !important; }
 }
+
+/* ---- PDF download button + ghost hero button ---- */
+.btn-ghost { background: rgba(255,255,255,.10); color: #fff; border: 1px solid rgba(255,255,255,.38); }
+.btn-ghost:hover { background: rgba(255,255,255,.18); border-color: #fff; transform: translateY(-2px); }
+.footer-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.footer-pdf { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 13.5px; color: #0B2545; background: var(--gold-500); padding: 9px 16px; border-radius: 10px; transition: var(--t-fast); }
+.footer-pdf:hover { background: var(--gold-400); transform: translateY(-1px); }
+@media (max-width: 720px) { .footer-actions { align-items: flex-start; } }
