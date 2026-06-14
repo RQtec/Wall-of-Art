@@ -37,7 +37,7 @@
   --t-fast: .2s ease;
   --t: .35s cubic-bezier(.22,.61,.36,1);
 
-  --font: "Tajawal", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font: "Cairo", "Tajawal", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
 /* ---------- Reset ---------- */
@@ -128,7 +128,7 @@ section { position: relative; }
 .header .container { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); gap: 20px; }
 
 .brand { display: flex; align-items: center; gap: 14px; }
-.brand-mark { width: 50px; height: 50px; flex: none; color: var(--navy-800); }
+.brand-mark { width: 54px; height: 50px; flex: none; object-fit: contain; }
 .brand-text { display: flex; flex-direction: column; line-height: 1.25; }
 .brand-name { font-size: 21px; font-weight: 800; color: var(--navy-800); letter-spacing: -.3px; }
 .brand-name b { color: #1AA053; }
@@ -482,9 +482,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 /* ---- Language toggle + English (LTR) support ---- */
 .lang-toggle { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; height: 44px; padding: 0 13px; border: 1px solid var(--line); border-radius: 11px; font-weight: 800; font-size: 14px; color: var(--navy-800); letter-spacing: .5px; transition: var(--t-fast); }
 .lang-toggle:hover { background: var(--navy-800); color: #fff; border-color: var(--navy-800); }
-html[lang="en"] body { direction: ltr; font-family: 'Poppins', 'Tajawal', 'Segoe UI', system-ui, sans-serif; }
+html[lang="en"] body { direction: ltr; font-family: 'Poppins', 'Cairo', 'Segoe UI', system-ui, sans-serif; }
 [dir="ltr"] input, [dir="ltr"] textarea { text-align: left !important; }
 @media (max-width: 860px) {
   [dir="ltr"] .nav { inset: 0 0 0 auto; transform: translateX(100%); }
   [dir="ltr"] .nav.open { transform: translateX(0); }
 }
+
+/* ---- Arabic typography: remove letter-spacing (it breaks cursive joins) ---- */
+html[lang="ar"] .eyebrow { text-transform: none; }
+html[lang="ar"] .eyebrow,
+html[lang="ar"] .section-title,
+html[lang="ar"] .brand-tag,
+html[lang="ar"] .lang-toggle,
+html[lang="ar"] .nav-link,
+html[lang="ar"] .stat-label,
+html[lang="ar"] .v-cat,
+html[lang="ar"] .g-cat,
+html[lang="ar"] h1, html[lang="ar"] h2, html[lang="ar"] h3, html[lang="ar"] h4 { letter-spacing: normal; }
