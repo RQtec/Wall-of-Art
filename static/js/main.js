@@ -111,7 +111,15 @@
       e.preventDefault();
       const f = new FormData(cform);
       const L = (k) => (f.get(k) || "").toString().trim();
-      const lines = [
+      const en = document.documentElement.lang === "en";
+      const lines = en ? [
+        "New request — Wall of Art",
+        "Name: " + L("name"),
+        "Mobile: " + L("phone"),
+        "City: " + L("city"),
+        "Service: " + L("service"),
+        "Details: " + L("message"),
+      ] : [
         "طلب جديد — Wall of Art",
         "الاسم: " + L("name"),
         "الجوال: " + L("phone"),
