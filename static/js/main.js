@@ -54,7 +54,7 @@
   spy();
 
   /* ---------- Lightbox gallery ---------- */
-  const items = $$(".gallery-item");
+  const items = $$(".cat-tile");
   const lb = $("#lightbox");
   const lbImg = $("#lbImg");
   let idx = 0;
