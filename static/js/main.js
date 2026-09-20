@@ -39,7 +39,7 @@
   $$(".reveal").forEach(el => el.classList.add("in"));
 
   /* ---------- Counters: final values, no animation ---------- */
-  $$("[data-count]").forEach(el => { el.textContent = (parseInt(el.dataset.count, 10) || 0).toLocaleString("en-US"); });
+  $$("[data-count]").forEach(el => { el.textContent = (parseInt(el.dataset.count, 10) || 0).toLocaleString("en-US", { useGrouping: false }); });
 
   /* ---------- Scrollspy ---------- */
   const sections = $$("section[id], div[id='home']");

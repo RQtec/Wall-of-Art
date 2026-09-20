@@ -134,6 +134,7 @@ section { position: relative; }
 .brand-name b { color: #1AA053; }
 .brand-tag { font-size: 12.5px; font-weight: 600; color: var(--muted); letter-spacing: .5px; }
 
+.nav > .nav-cta { display: none; }
 .nav-list { display: flex; align-items: center; gap: 6px; }
 .nav-link {
   display: inline-block; padding: 10px 16px; font-weight: 600; font-size: 16px;
@@ -433,7 +434,7 @@ section { position: relative; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 34px; }
   .video-grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 860px) {
+@media (max-width: 1180px) {
   .topbar { display: none; }
   /* backdrop-filter on the header would trap the position:fixed drawer inside
      the header box (only the first link shows) — disable it on mobile */
@@ -527,7 +528,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .lang-toggle:hover { background: var(--navy-800); color: #fff; border-color: var(--navy-800); }
 html[lang="en"] body { direction: ltr; font-family: 'Poppins', 'Cairo', 'Segoe UI', system-ui, sans-serif; }
 [dir="ltr"] input, [dir="ltr"] textarea { text-align: left !important; }
-@media (max-width: 860px) {
+@media (max-width: 1180px) {
   [dir="ltr"] .nav { inset: 0 0 0 auto; transform: translateX(100%); }
   [dir="ltr"] .nav.open { transform: translateX(0); }
 }
